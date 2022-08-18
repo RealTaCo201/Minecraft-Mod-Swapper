@@ -11,6 +11,8 @@ screen.setup(width=600, height=430)
 screen.bgcolor("black")
 canvas = screen.getcanvas()
 
+pen = Turtle()
+
 unused_mods_dir = os.environ["USERPROFILE"] + "\\AppData\\Roaming\\.minecraft\\unusedmods\\"
 if not os.path.exists(unused_mods_dir):
     os.makedirs(unused_mods_dir)
@@ -35,10 +37,10 @@ def replace_mods(from_folder):
     print(from_folder)
     print("Replaced mods in mod folder!")
     global replaced
-    hideturtle()
-    color("white")
-    goto(0, 143)
-    write("Replaced used mods!", align="center", font=("Calibri", 20, "normal"))
+    pen.hideturtle()
+    pen.color("white")
+    pen.goto(0, 143)
+    pen.write("Replaced used mods!", align="center", font=("Calibri", 20, "normal"))
     replaced = True
 
 
@@ -81,8 +83,7 @@ while True:
         prev_screen_height = screen.window_height()
         if replaced:
             sleep(2)
-            color("black")
-            write("Replaced used mods!", align="center", font=("Calibri", 20, "normal"))
+            pen.clear()
             replaced = False
     except:
         exit()
